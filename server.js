@@ -38,16 +38,16 @@ app.get("/api/timestamp/:date_string", function (req, res) {
     date = new Date(dateString )
     
     if (typeof(date) === 'undefined'){
-      res.json({"unix": null, "utc" : "Invalid Date" })
+      res.json({"error" : "Invalid Date" })
     } else {
       res.json({unix: date.valueOf(), utc: date.toUTCString()})
     }   
   } else {
-    dateString = parseInt(req.params.date_string) * 1000
+    dateString = parseInt(req.params.date_string)
     date = new Date(dateString)
     
    if (typeof(date) === 'undefined'){
-     res.json({"unix": null, "utc" : "Invalid Date" })
+     res.json({"error" : "Invalid Date" })
     } else {
       res.json({unix: date.valueOf(), utc: date.toUTCString()})
     } 
